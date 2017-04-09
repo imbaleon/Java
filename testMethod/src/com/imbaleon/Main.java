@@ -4,37 +4,36 @@ public class Main {
 
     public static void main(String[] args) {
 
+        double x;
 
-        int playerPostion = calculateHighScorePosition(1);
-        displayHighScorePosition("Don", playerPostion);
-
-        playerPostion = calculateHighScorePosition(150);
-        displayHighScorePosition("Bob", playerPostion);
-
-        playerPostion = calculateHighScorePosition(550);
-        displayHighScorePosition("Tim", playerPostion);
-
-        playerPostion = calculateHighScorePosition(1550);
-        displayHighScorePosition("Patrick", playerPostion);
+        x = calcFeetAndInchesToCentimeters(0, 12);
+        System.out.println(x);
+        x = calcFeetAndInchesToCentimeters(12);
+        System.out.println(x);
 
     }
 
-    public static void displayHighScorePosition(String name, int position) {
+    public static double calcFeetAndInchesToCentimeters(double feet, double inches) {
 
-        System.out.println(name + " managed to get in position " + position);
+        if (feet >= 0) {
+            if ((inches >= 0) && (inches <= 12)) {
+                return 2.54 * (feet * 12 + inches);
+            }
 
-    }
-
-    public static int calculateHighScorePosition(int score) {
-
-        if (score > 1000) {
-            return 1;
-        } else if ((score > 500) && (score < 1_000)) {
-            return 2;
-        } else if ((score > 100) && (score < 500)) {
-            return 3;
         }
-
-        return 4;
+        return -1;
     }
+
+    public static double calcFeetAndInchesToCentimeters(double inches) {
+
+
+        if (inches > 0) {
+            double feet = (int)inches / 12;
+            inches = (int)inches % 12;
+            return calcFeetAndInchesToCentimeters(feet, inches);
+        }
+        return -1;
+    }
+
+
 }

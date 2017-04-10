@@ -3,16 +3,14 @@ package com.imbaleon;
 public class Main {
 
     public static void main(String[] args) {
+        VipCustomer patrick = new VipCustomer();
+        System.out.println(patrick.getCreditLimit());
 
-        BankAccount patrick = new BankAccount();
-        BankAccount monica = new BankAccount("monica",12345,0,"abc@yahoo.com","6196427248");
+        VipCustomer monica = new VipCustomer("mon","nibu@asd,cin");
+        System.out.println(monica.getCreditLimit());
 
-        monica.depositFunds(200);
-        monica.withdrawFunds(50.55);
-        monica.getBalance();
-
-        patrick.depositFunds(200);
-        patrick.withdrawFunds(20001);
+        VipCustomer tim = new VipCustomer("mon",9876,"nibu@asd,cin");
+        System.out.println(tim.getCreditLimit());
 
     }
 
